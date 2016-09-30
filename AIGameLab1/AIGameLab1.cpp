@@ -17,7 +17,6 @@
 #endif 
 #pragma comment(lib,"opengl32.lib") 
 #pragma comment(lib,"glu32.lib") 
-
 #include "SFML/Graphics.hpp" 
 #include "SFML/OpenGL.hpp" 
 #include <iostream> 
@@ -47,35 +46,35 @@ int main()
 	int randomX = rand() % ViewportWidth + offsetForXY;
 	int randomY = rand() % ViewportHeight + offsetForXY;
 	sf::Vector2f position(randomX, randomY);
-	SimpleSprite spaceShip(spaceShipTx, position , 0.01);
+	SimpleSprite spaceShip(spaceShipTx, position, 0.01);
 
-		// Start game loop 
-		while (window.isOpen())
+	// Start game loop 
+	while (window.isOpen())
+	{
+		// Process events 
+		sf::Event Event;
+		while (window.pollEvent(Event))
 		{
-			// Process events 
-			sf::Event Event;
-			while (window.pollEvent(Event))
-			{
-				// Close window : exit 
-				if (Event.type == sf::Event::Closed)
-					window.close();
+			// Close window : exit 
+			if (Event.type == sf::Event::Closed)
+				window.close();
 
-				// Escape key : exit 
-				if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Escape))
-					window.close();
-				spaceShip.Update(Event);
-			}
+			// Escape key : exit 
+			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Escape))
+				window.close();
 
-			spaceShip.MoveSprite(ViewportWidth,ViewportHeight);
-
-			//prepare frame
-			window.clear();
-			//draw frame items
-			window.draw(spaceShip);
-			// Finally, display rendered frame on screen 
-			window.display();
-			//loop back for next frame
+			spaceShip.Update(Event);
 		}
+
+		spaceShip.MoveSprite(ViewportWidth, ViewportHeight);
+		//prepare frame
+		window.clear();
+		//draw frame items
+		window.draw(spaceShip);
+		// Finally, display rendered frame on screen 
+		window.display();
+		//loop back for next frame
+	}
 
 	return EXIT_SUCCESS;
 
