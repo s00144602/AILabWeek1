@@ -39,7 +39,7 @@ int main()
 	// Create the main window 
 	sf::RenderWindow window(sf::VideoMode(ViewportWidth, ViewportHeight, 32), "Randomly starting, infinitely moving Sprites and Circles");
 
-	Ship spaceShip(0.1f);
+	Ship spaceShip(0.2f);
 
 	// Start game loop 
 	while (window.isOpen())

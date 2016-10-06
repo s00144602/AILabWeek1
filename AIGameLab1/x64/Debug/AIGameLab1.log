@@ -1,9 +1,6 @@
 ﻿  Ship.cpp
-c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(64): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(71): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(78): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  AIGameLab1.vcxproj -> C:\Users\Shauna\Documents\GitHub\AILabWeek1\x64\Debug\AIGameLab1.exe
-  AIGameLab1.vcxproj -> C:\Users\Shauna\Documents\GitHub\AILabWeek1\x64\Debug\AIGameLab1.pdb (Full PDB)
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(88): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(89): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+LINK : fatal error LNK1201: error writing to program database 'C:\Users\Shauna\Documents\GitHub\AILabWeek1\x64\Debug\AIGameLab1.pdb'; check for insufficient disk space, invalid path, or insufficient privilege
