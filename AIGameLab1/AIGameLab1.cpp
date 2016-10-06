@@ -22,31 +22,24 @@
 #include <iostream> 
 #define _USE_MATH_DEFINES
 #include <math.h>
-#include "SimpleSprite.h"
+#include "Ship.h"
 
 
 ////////////////////////////////////////////////////////////
 ///Entrypoint of application 
 //////////////////////////////////////////////////////////// 
+extern const int ViewportWidth = 1500;
+extern const int ViewportHeight = 750;
 
 int main()
 {
 	//initialise random seed
 	srand(time(NULL));
 
-	int ViewportWidth = 2000;
-	int ViewportHeight = 1000;
 	// Create the main window 
 	sf::RenderWindow window(sf::VideoMode(ViewportWidth, ViewportHeight, 32), "Randomly starting, infinitely moving Sprites and Circles");
 
-	//Ireland circle sprite moves in the same direction and reappears at eh bottom of the screen where it exited
-	sf::Texture spaceShipTx;
-	spaceShipTx.loadFromFile("ireland.png");
-	int offsetForXY = 50;
-	int randomX = rand() % ViewportWidth + offsetForXY;
-	int randomY = rand() % ViewportHeight + offsetForXY;
-	sf::Vector2f position(randomX, randomY);
-	SimpleSprite spaceShip(spaceShipTx, position, 0.01);
+	Ship spaceShip(0.1f);
 
 	// Start game loop 
 	while (window.isOpen())
@@ -66,7 +59,7 @@ int main()
 			spaceShip.Update(Event);
 		}
 
-		spaceShip.MoveSprite(ViewportWidth, ViewportHeight);
+		spaceShip.MoveSprite();
 		//prepare frame
 		window.clear();
 		//draw frame items

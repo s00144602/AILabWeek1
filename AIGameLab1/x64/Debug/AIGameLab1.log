@@ -1,6 +1,9 @@
-﻿  AIGameLab1.cpp
-c:\users\87126\documents\visual studio 2015\projects\aigamelab1\aigamelab1\aigamelab1.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\87126\documents\visual studio 2015\projects\aigamelab1\aigamelab1\aigamelab1.cpp(48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\87126\documents\visual studio 2015\projects\aigamelab1\aigamelab1\aigamelab1.cpp(49): warning C4305: 'argument': truncation from 'double' to 'float'
-  AIGameLab1.vcxproj -> C:\Users\87126\Documents\Visual Studio 2015\Projects\AIGameLab1\x64\Debug\AIGameLab1.exe
-  AIGameLab1.vcxproj -> C:\Users\87126\Documents\Visual Studio 2015\Projects\AIGameLab1\x64\Debug\AIGameLab1.pdb (Full PDB)
+﻿  Ship.cpp
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(64): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(71): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\aigamelab1\ship.cpp(78): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  AIGameLab1.vcxproj -> C:\Users\Shauna\Documents\GitHub\AILabWeek1\x64\Debug\AIGameLab1.exe
+  AIGameLab1.vcxproj -> C:\Users\Shauna\Documents\GitHub\AILabWeek1\x64\Debug\AIGameLab1.pdb (Full PDB)

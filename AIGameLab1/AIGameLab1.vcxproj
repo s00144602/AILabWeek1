@@ -155,14 +155,14 @@
   <ItemGroup>
     <ClInclude Include="AIGameLab1.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="SimpleSprite.h" />
+    <ClInclude Include="Ship.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIGameLab1.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="SimpleSprite.cpp" />
+    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
