@@ -28,6 +28,9 @@
 ////////////////////////////////////////////////////////////
 ///Entrypoint of application 
 //////////////////////////////////////////////////////////// 
+//Global variables should be prepended with a 'g'.
+//Global constants should be all caps with '_' separators. .. 
+//I'll know for again :)
 extern const int ViewportWidth = 1500;
 extern const int ViewportHeight = 750;
 
@@ -56,10 +59,10 @@ int main()
 			if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Escape))
 				window.close();
 
-			spaceShip.Update(Event);
+			spaceShip.update(Event);
 		}
 
-		spaceShip.MoveSprite();
+		spaceShip.moveSprite();
 		//prepare frame
 		window.clear();
 		//draw frame items
