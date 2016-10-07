@@ -1,11 +1,21 @@
 #pragma once
 #include "SFML/Graphics.hpp" 
 using namespace sf;
+#include "Ship.h"
+#include "Player.h"
 
-class Enemy : public Drawable
+class Enemy : public Ship
 {
+	enum MovementState {
+		SEEKING, FLEEING, 
+	};
+
 public:
-	Enemy();
+	Enemy(float Speed);
 	~Enemy();
+
+	void update(Vector2f targetPos);
+
+private:
 };
 
