@@ -5,6 +5,13 @@
 extern const int ViewportWidth;
 extern const int ViewportHeight;
 
+void Ship::setOrientaion(Vector2f velocity)
+{
+	float length = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y));
+	if(length > 0)
+		mSprite.setRotation(std::atan2(-velocity.x, velocity.y) * (180 / M_PI));
+}
+
 Ship::Ship(float speed)
 {
 	mSpeed = speed;
@@ -16,8 +23,7 @@ Ship::Ship(float speed)
 	mPosition = position;
 	mSprite.setPosition(position);
 	//determine the angle the ship is moving
-	mAngle = std::atan2(position.x, position.y) * (180 / M_PI);
-	mSprite.setRotation(mAngle);
+	setOrientaion(normalize(position));
 }
 
 Ship::~Ship() {}
@@ -29,9 +35,9 @@ void Ship::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Ship::moveSprite(float gameTime)
 {
-	mDirection.x = mSpeed *  cos(mSprite.getRotation() * (M_PI / 180.f));
-	mDirection.y = mSpeed *  sin(mSprite.getRotation() * (M_PI / 180.f));
-	mSprite.move(mDirection * gameTime);
+	mVelocity.x = mSpeed *  cos(mSprite.getRotation() * (M_PI / 180.f))* gameTime;
+	mVelocity.y = mSpeed *  sin(mSprite.getRotation() * (M_PI / 180.f))* gameTime;
+	mSprite.setPosition(mPosition +(mVelocity));
 	mPosition = mSprite.getPosition();
 	checkWrapAround();
 }
@@ -60,4 +66,13 @@ void Ship::checkWrapAround()
 		mPosition.x = ViewportWidth + mDynamicWidth;
 	}
 	mSprite.setPosition(mPosition);
+}
+
+Vector2f Ship::normalize(Vector2f source)
+{
+	float length = sqrt((source.x * source.x) + (source.y * source.y));
+	if (length != 0)
+		return Vector2f(source.x / length, source.y / length);
+	else
+		return source;
 }

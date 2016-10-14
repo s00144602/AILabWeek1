@@ -4,8 +4,9 @@
 
 Player::Player(float speed) : Ship(speed)
 {
-	Ship::mShipTx.loadFromFile("Textures/ship.png");
+	Ship::mShipTx.loadFromFile("Textures/1.png");
 	mSprite.setTexture(mShipTx);
+	mSprite.setOrigin(mSprite.getTextureRect().width / 2, mSprite.getTextureRect().height / 2);
 }
 
 Player::Player() : Ship(8)
@@ -14,30 +15,34 @@ Player::Player() : Ship(8)
 	mSprite.setTexture(mShipTx);
 }
 
-
-void Player::update(sf::Event Event)
+void Player::update(float gameTime)
 {
-
-	if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Up))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		mSpeed < MaxSpeed ? mSpeed += MinSpeed : mSpeed = MaxSpeed;
+		mSprite.setRotation(mSprite.getRotation()-(AngleToRotate*gameTime));
 	}
 
-	if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Down))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		mSpeed > MinSpeed ? mSpeed -= MinSpeed : mSpeed = MinSpeed;
+		mSprite.setRotation(mSprite.getRotation()+(AngleToRotate*gameTime));
 	}
 
-	if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Left))
+	moveSprite(gameTime);
+}
+
+void Player::inputEvent(sf::Keyboard::Key key)
+{
+	float diff = 0.1f;
+	if (key == (sf::Keyboard::Up))
 	{
-		mSprite.rotate(-AngleToRotate);
+			mSpeed <= MaxSpeed ? mSpeed += diff : mSpeed = MaxSpeed;
 	}
 
-	if ((Event.type == sf::Event::KeyPressed) && (Event.key.code == sf::Keyboard::Right))
+	if (key == (sf::Keyboard::Down))
 	{
-		mSprite.rotate(AngleToRotate);
-	}
+		mSpeed >= MinSpeed ? mSpeed -= diff : mSpeed = MinSpeed;
 
+	}
 }
 
 Player::~Player()

@@ -14,8 +14,9 @@ public:
 	Enemy(float Speed);
 	~Enemy();
 
-	void update(Vector2f targetPos);
+	void update(Vector2f targetPos, float gameTime);
 
 private:
+	Vector2f seek(Vector2f targetPos);
 };
 

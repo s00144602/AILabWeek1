@@ -11,12 +11,13 @@ public:
 
 	Player();
 	
-	void update(sf::Event Event);
+	void update(float gameTime);
+	void inputEvent(sf::Keyboard::Key key);
 	
 private:
 
-	const float MaxSpeed = 1500;
-	const float MinSpeed = 250;
-	const float AngleToRotate = 3;
+	const float MaxSpeed = 2;
+	const float MinSpeed = 0.01f;
+	const float AngleToRotate = 0.1f;
 };
 
