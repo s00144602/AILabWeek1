@@ -1,11 +1,11 @@
 #pragma once
-#include "VisibleGameObject.h"
+#include "GameObject.h"
 
-class MovingObject : public VisibleGameObject
+class MovingObject : public GameObject
 {
 public:
 	MovingObject();
-	MovingObject(std::string asset, Vector2f position);
+	MovingObject(std::string asset);
 	~MovingObject();
 
 	void update(float elapsedTime);

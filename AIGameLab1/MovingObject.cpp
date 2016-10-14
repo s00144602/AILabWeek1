@@ -6,7 +6,7 @@ MovingObject::MovingObject()
 {
 }
 
-MovingObject::MovingObject(std::string txFileName, Vector2f position) : VisibleGameObject(txFileName, position)
+MovingObject::MovingObject(std::string txFileName) : GameObject(txFileName)
 {
 	
 }
@@ -20,11 +20,11 @@ void MovingObject::update(float elapsedTime)
 {
 }
 
-//void MovingObject::draw(sf::RenderWindow & rw) : VisibleGameObject(rw);
+//void MovingObject::draw(sf::RenderWindow & rw) : GameObject(rw);
 //{
 //}
 
 float MovingObject::getVelocity() const
 {
-	return 0.0f;
+	return _velocity;
 }

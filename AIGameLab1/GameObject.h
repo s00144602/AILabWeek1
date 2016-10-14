@@ -1,19 +1,25 @@
 #pragma once
 #include "SFML/Graphics.hpp" 
+
 using namespace sf;
-class VisibleGameObject
+
+class GameObject
 {
 public:
-	VisibleGameObject();
-	VisibleGameObject(std::string txFilename, Vector2f pos);
+	GameObject();
+	GameObject(std::string txFilename);
 
-	virtual ~VisibleGameObject();
+	virtual ~GameObject();
 	virtual void load(std::string txFilename);
 	virtual void draw(sf::RenderWindow & window);
 	virtual void update(float elapsedTime);
 
 	virtual void setPosition(float x, float y);
 	virtual sf::Vector2f getPosition() const;
+	virtual float getWidth() const;
+	virtual float getHeight() const;
+	virtual sf::IntRect getBoundingRect() const;
+
 	virtual bool isLoaded() const;
 
 	//derived classes to get access to the inherited  private _sprite member.
