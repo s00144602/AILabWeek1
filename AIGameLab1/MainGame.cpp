@@ -29,7 +29,7 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	// Start game loop 
-	Game::Start();
+	Game::start();
 	return EXIT_SUCCESS;
 
 }

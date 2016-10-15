@@ -19,7 +19,6 @@ public:
 	virtual float getWidth() const;
 	virtual float getHeight() const;
 	virtual sf::IntRect getBoundingRect() const;
-
 	virtual bool isLoaded() const;
 
 	//derived classes to get access to the inherited  private _sprite member.

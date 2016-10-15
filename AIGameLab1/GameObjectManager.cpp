@@ -53,17 +53,15 @@ void GameObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 	}
 }
 
-void GameObjectManager::UpdateAll()
+void GameObjectManager::updateAll(float elapsedTime)
 {
-	//TODO ... add elapsed time finish update
 	std::map<std::string, GameObject*>::const_iterator itr = _gameObjects.begin();
-	//float timeDelta = Game::getWindow().getFrameTime();
 
-	//while (itr != _gameObjects.end())
-	//{
-	//	itr->second->Update(timeDelta);
-	//	itr++;
-	//}
+	while (itr != _gameObjects.end())
+	{
+		itr->second->update(elapsedTime);
+		itr++;
+	}
 
 }
 

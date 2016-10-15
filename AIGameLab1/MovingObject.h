@@ -8,13 +8,21 @@ public:
 	MovingObject(std::string asset);
 	~MovingObject();
 
-	void update(float elapsedTime);
-//	void draw(sf::RenderWindow& rw);
+	virtual void update(float elapsedTime);
+	Vector2f getVelocity() const;
+	void getOrientation();
+	void setVelocity();
+	float getSpeed() const;
 
-	float getVelocity() const;
+protected:
+	const float MAX_SPEED = 1;
+	float _speed = 0.3f;
+	void checkWrapAround();
+	float _angle;
 
 private:
-	float _velocity;  // -- left ++ right
-	float _maxVelocity;
+	void move(float elapsedTime);
+	Vector2f _velocity; 
+
 };
 

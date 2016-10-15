@@ -1,23 +1,17 @@
 #pragma once
-#include "SFML/Graphics.hpp" 
-#include "Ship.h"
-using namespace sf;
+#include "MovingObject.h"
 
-class Player : public Ship
+class Player : public MovingObject
 {
 public:
-	Player(float Speed);
+	Player(std::string asset);
 	~Player();
-
-	Player();
-	
-	void update(float gameTime);
-	void inputEvent(sf::Keyboard::Key key);
-	
+	void update(float elapsedTime);
 private:
-
-	const float MaxSpeed = 2;
-	const float MinSpeed = 0.01f;
-	const float AngleToRotate = 0.1f;
+	void speedInput(float elapsedTime);
+	void turnInput(float elapsedTime);
+	const float ROTATION_ANGLE = 0.1f;
+	const float SPEED_CHANGER = 0.00001f;
+	const float MIN_SPEED = 0.1f;
 };
 

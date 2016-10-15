@@ -12,13 +12,7 @@ GameObject::GameObject()
 GameObject::GameObject(std::string txFilename)
 {
 	load(txFilename);
-	//randomly set the position of the ship within the Viewport
-	int offsetForXY = 50;
-	int randomX = rand() % ViewportWidth + offsetForXY;
-	int randomY = rand() % ViewportHeight + offsetForXY;
-
-	setPosition(randomX, randomY);
-	getSprite().setOrigin(getSprite().getScale().x / 2, getSprite().getScale().y / 2);
+	getSprite().setOrigin(getSprite().getTextureRect().width / 2, getSprite().getTextureRect().height / 2);
 }
 
 GameObject::~GameObject()
@@ -50,6 +44,7 @@ void GameObject::draw(sf::RenderWindow & renderWindow)
 
 void GameObject::update(float elapsedTime)
 {
+
 }
 
 void GameObject::setPosition(float x, float y)

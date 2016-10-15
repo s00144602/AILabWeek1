@@ -14,7 +14,7 @@ public:
 	GameObject* Get(std::string name) const;
 
 	void DrawAll(sf::RenderWindow& renderWindow);
-	void UpdateAll();
+	void updateAll(float elapsedTime);
 	
 private:
 	std::map<std::string, GameObject*> _gameObjects;

@@ -156,22 +156,21 @@
     <ClInclude Include="AIGameLab1.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="MovingObject.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Ship.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="GameObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameConstants.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="MainGame.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="MovingObject.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
