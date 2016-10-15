@@ -154,12 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIGameLab1.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameObjectManager.h" />
-    <ClInclude Include="MovingObject.h" />
+    <ClInclude Include="MathsUtil.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SeekerObject.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="GameObject.h" />
@@ -169,8 +169,9 @@
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="MovingObject.cpp" />
+    <ClCompile Include="MathsUtil.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SeekerObject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

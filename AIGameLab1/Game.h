@@ -2,7 +2,6 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "GameObjectManager.h"
-#include "MovingObject.h"
 
 class Game
 {

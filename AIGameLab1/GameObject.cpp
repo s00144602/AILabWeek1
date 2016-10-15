@@ -1,8 +1,8 @@
 #include "stdafx.h"
+#define _USE_MATH_DEFINES
 #include "GameObject.h"
-
-extern const int ViewportWidth;
-extern const int ViewportHeight;
+#include "GameConstants.h"
+#include "MathsUtil.h"
 
 GameObject::GameObject()
 {
@@ -13,6 +13,15 @@ GameObject::GameObject(std::string txFilename)
 {
 	load(txFilename);
 	getSprite().setOrigin(getSprite().getTextureRect().width / 2, getSprite().getTextureRect().height / 2);
+	/* initialize random seed: */
+	srand(time(NULL));
+	//randomly set the position of the ship within the Viewport
+	int offsetForXY = 50;
+	int randomX = rand() % GameConstants::SCREEN_WIDTH - offsetForXY;
+	int randomY = rand() % GameConstants::SCREEN_HEIGHT - offsetForXY;
+	setPosition(randomX, randomY);
+	int randomAngle = rand() % 360;
+	_angle = randomAngle;
 }
 
 GameObject::~GameObject()
@@ -29,6 +38,7 @@ void GameObject::load(std::string txFilename)
 	else
 	{
 		_txFilename = txFilename;
+		_texture.setSmooth(true);
 		_sprite.setTexture(_texture);
 		_isLoaded = true;
 	}
@@ -44,7 +54,7 @@ void GameObject::draw(sf::RenderWindow & renderWindow)
 
 void GameObject::update(float elapsedTime)
 {
-
+	move(elapsedTime);
 }
 
 void GameObject::setPosition(float x, float y)
@@ -79,7 +89,31 @@ sf::IntRect GameObject::getBoundingRect() const
 	return _sprite.getTextureRect();
 }
 
+Vector2f GameObject::getVelocity() const
+{
+	return _velocity;
+}
 
+void GameObject::getOrientation()
+{
+	float length = sqrt((_velocity.x * _velocity.x) + (_velocity.y * _velocity.y));
+	if (length > 0)
+		getSprite().setRotation(std::atan2(-_velocity.x, _velocity.y) * (180 / M_PI));
+
+}
+
+void GameObject::setVelocity()
+{
+	float x = cos(_angle  * (M_PI / 180.f));
+	float y = sin(_angle  * (M_PI / 180.f));
+	Vector2f dir(x, y);
+	dir = MathsUtil::normaliseVector(dir);
+	_velocity = _speed * dir;
+}
+void GameObject::setTargetPosition(Vector2f targetPosition)
+{
+	_targetPosition = targetPosition;
+}
 sf::Sprite& GameObject::getSprite()
 {
 	return _sprite;
@@ -88,4 +122,36 @@ sf::Sprite& GameObject::getSprite()
 bool GameObject::isLoaded() const
 {
 	return _isLoaded;
+}
+void GameObject::checkWrapAround()
+{
+	float mDynamicHeight = getSprite().getGlobalBounds().height;
+	float mDynamicWidth = getSprite().getGlobalBounds().width;
+	//WrapAround movement
+	//Check position Y of the ship isn't out of bounds
+	if (getPosition().y + mDynamicHeight < 0)
+	{
+		setPosition(getPosition().x, GameConstants::SCREEN_HEIGHT + mDynamicHeight);
+	}
+	else if (getPosition().y - mDynamicHeight > GameConstants::SCREEN_HEIGHT)
+	{
+		setPosition(getPosition().x, -mDynamicHeight);
+	}
+	//Check position X of the ship isn't out of bounds
+	if (getPosition().x - mDynamicWidth > GameConstants::SCREEN_WIDTH)
+	{
+		setPosition(-mDynamicWidth, getPosition().y);
+	}
+	else if (getPosition().x + mDynamicWidth < 0)
+	{
+		setPosition(GameConstants::SCREEN_WIDTH + mDynamicWidth, getPosition().y);
+	}
+}
+
+void GameObject::move(float elapsedTime)
+{
+	getOrientation();
+	Vector2f dv = getPosition() + (_velocity * elapsedTime);
+	setPosition(dv.x, dv.y);
+	checkWrapAround();
 }

@@ -1,15 +1,15 @@
 #include "stdafx.h"
 #include "Game.h"
-#include "MovingObject.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
 #include "GameConstants.h"
 #include "Player.h"
+#include "SeekerObject.h"
+#include "GameObjectManager.h"
 
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
 GameObjectManager Game::_gameObjectManager;
 GameObject* player;
+GameObject* seeker;
 
 float elapsedTime = 0;
 
@@ -23,7 +23,6 @@ void Game::renderingThread(sf::RenderWindow* window)
 	{
 		elapsedTime = clock.getElapsedTime().asSeconds();
 		clock.restart();
-
 		//Display fps in window title
 		timer++;
 		float fps = 1 / (elapsedTime);
@@ -46,7 +45,10 @@ void Game::renderingThread(sf::RenderWindow* window)
 void Game::loadGameObjects() 
 {
 	player = new Player("Textures/1.png");
+	seeker = new SeekerObject("Textures/enemy.png");
+	seeker->setTargetPosition(player->getPosition());
 	_gameObjectManager.Add("Player1", player);
+	_gameObjectManager.Add("Seeker", seeker);
 }
 
 //starts the game and loads the assets and begins the gameloop
@@ -74,6 +76,7 @@ void Game::start(void)
 
 	while (!IsExiting())
 	{
+		seeker->setTargetPosition(player->getPosition());
 		GameLoop();
 	}
 
@@ -119,10 +122,6 @@ void Game::GameLoop()
 		// Escape key : exit 
 		if ((currentEvent.type == sf::Event::KeyPressed) && (currentEvent.key.code == sf::Keyboard::Escape))
 			_mainWindow.close();
-		else if (currentEvent.type == sf::Event::KeyPressed)
-		{
-
-		}
 
 		break;
 	}

@@ -2,8 +2,9 @@
 #include "Player.h"
 
 
-Player::Player(std::string asset) : MovingObject(asset)
+Player::Player(std::string asset) : GameObject(asset)
 {
+
 }
 
 Player::~Player()
@@ -38,10 +39,12 @@ void Player::turnInput(float elapsedTime)
 
 void Player::update(float elapsedTime)
 {
+	setVelocity();
+
 	speedInput(elapsedTime);
 
 	turnInput(elapsedTime);
 
-	MovingObject::update(elapsedTime);
+	GameObject::update(elapsedTime);
 }
 

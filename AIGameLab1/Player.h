@@ -1,7 +1,7 @@
 #pragma once
-#include "MovingObject.h"
+#include "GameObject.h"
 
-class Player : public MovingObject
+class Player : public GameObject
 {
 public:
 	Player(std::string asset);
@@ -11,7 +11,7 @@ private:
 	void speedInput(float elapsedTime);
 	void turnInput(float elapsedTime);
 	const float ROTATION_ANGLE = 0.1f;
-	const float SPEED_CHANGER = 0.00001f;
+	const float SPEED_CHANGER = 0.1f;
 	const float MIN_SPEED = 0.1f;
 };
 
