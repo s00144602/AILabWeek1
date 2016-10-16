@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #define _USE_MATH_DEFINES
 #include "GameObject.h"
-#include "GameConstants.h"
 #include "MathsUtil.h"
+#include "GameConstants.h"
 
 GameObject::GameObject()
 {
@@ -13,13 +13,7 @@ GameObject::GameObject(std::string txFilename)
 {
 	load(txFilename);
 	getSprite().setOrigin(getSprite().getTextureRect().width / 2, getSprite().getTextureRect().height / 2);
-	/* initialize random seed: */
-	srand(time(NULL));
-	//randomly set the position of the ship within the Viewport
-	int offsetForXY = 50;
-	int randomX = rand() % GameConstants::SCREEN_WIDTH - offsetForXY;
-	int randomY = rand() % GameConstants::SCREEN_HEIGHT - offsetForXY;
-	setPosition(randomX, randomY);
+
 	int randomAngle = rand() % 360;
 	_angle = randomAngle;
 }
@@ -102,14 +96,6 @@ void GameObject::getOrientation()
 
 }
 
-void GameObject::setVelocity()
-{
-	float x = cos(_angle  * (M_PI / 180.f));
-	float y = sin(_angle  * (M_PI / 180.f));
-	Vector2f dir(x, y);
-	dir = MathsUtil::normaliseVector(dir);
-	_velocity = _speed * dir;
-}
 void GameObject::setTargetPosition(Vector2f targetPosition)
 {
 	_targetPosition = targetPosition;

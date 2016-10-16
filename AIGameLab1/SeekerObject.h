@@ -9,5 +9,6 @@ public:
 	void update(float elapsedTime);
 private:
 	void seek();
+	const float MAX_SPEED = 0.6f;
 };
 

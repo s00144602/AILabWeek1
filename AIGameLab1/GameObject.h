@@ -20,14 +20,12 @@ public:
 	virtual bool isLoaded() const;
 	Vector2f getVelocity() const;
 	void getOrientation();
-	void setVelocity();
+
 	void setTargetPosition(Vector2f targetPosition);
 
 	//derived classes to get access to the inherited  private _sprite member.
 protected:
 	sf::Sprite& getSprite();
-	const float MAX_SPEED = 1;
-	float _speed = 0.3f;
 	void checkWrapAround();
 	float _angle;
 	Vector2f _targetPosition;

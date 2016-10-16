@@ -3,6 +3,7 @@
 #include "GameConstants.h"
 #include "Player.h"
 #include "SeekerObject.h"
+#include "ArrivingObject.h"
 #include "GameObjectManager.h"
 
 Game::GameState Game::_gameState = Uninitialized;
@@ -10,7 +11,7 @@ sf::RenderWindow Game::_mainWindow;
 GameObjectManager Game::_gameObjectManager;
 GameObject* player;
 GameObject* seeker;
-
+GameObject* arriving;
 float elapsedTime = 0;
 
 //Thread for the drawing 
@@ -44,11 +45,14 @@ void Game::renderingThread(sf::RenderWindow* window)
 //Loads all the game objects
 void Game::loadGameObjects() 
 {
+	/* initialize random seed: */
+	srand(time(NULL));
 	player = new Player("Textures/1.png");
 	seeker = new SeekerObject("Textures/enemy.png");
-	seeker->setTargetPosition(player->getPosition());
+	arriving = new ArrivingObject("Textures/ship.png");
 	_gameObjectManager.Add("Player1", player);
 	_gameObjectManager.Add("Seeker", seeker);
+	_gameObjectManager.Add("Arriving", arriving);
 }
 
 //starts the game and loads the assets and begins the gameloop
@@ -77,6 +81,7 @@ void Game::start(void)
 	while (!IsExiting())
 	{
 		seeker->setTargetPosition(player->getPosition());
+		arriving->setTargetPosition(player->getPosition());
 		GameLoop();
 	}
 

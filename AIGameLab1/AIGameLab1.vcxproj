@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIGameLab1.h" />
+    <ClInclude Include="ArrivingObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameObjectManager.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="GameObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArrivingObject.cpp" />
     <ClCompile Include="GameConstants.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="MainGame.cpp" />
