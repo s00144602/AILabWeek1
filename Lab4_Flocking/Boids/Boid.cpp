@@ -247,27 +247,30 @@ void Boid::swarm(vector <Boid> v)
 				R.normalise()
 				force = force + R*U
 	*/
-	Pvector	R = location;
+	Pvector	R;
+	int A = 100;
+	int B = 5000;
+	int N = 1;
+	int M = 2;
+	int count = 0;
+	float totalForce = 0;
 	Pvector sum(0, 0);
 
-	// Your code here..
-	Pvector coh = Cohesion(v);
 	for (int i = 0; i < v.size(); i++)
 	{
-		float neighbordist = 100;
-		//Vector R = me.position - you.position
-		float d = location.distance(v[i].location);
-		if ((d != 0) && (d < neighbordist))
+		R = R.subTwoVector(location, v[i].location);
+		float D = R.magnitude();
+		if (D > 0)
 		{
-			R.subVector(v[i].location);
-			float D = R.magnitude();
-			float U = -2 / pow(D, 3) + 2 / pow(D, 3);
+			float U = -A / pow(D, N) + B / pow(D, M);
 			R.normalize();
 			R.mulScalar(U);
+			sum.addVector(R);
 		}
+
 	}
-	Pvector ali = Alignment(v);
-		applyForce(R);
-		update();
-		borders();
+	sum.divScalar(v.size() - 1);
+	applyForce(sum);
+	update();
+	borders();
 	}
