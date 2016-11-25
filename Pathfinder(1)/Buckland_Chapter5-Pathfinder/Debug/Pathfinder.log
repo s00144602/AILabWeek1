@@ -1,0 +1,6 @@
+﻿  WindowUtils.cpp
+  Cgdi.cpp
+  PrecisionTimer.cpp
+  Generating Code...
+main.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  Pathfinder.vcxproj -> C:\Temp\Buckland_Chapter5-Pathfinder\.\Debug\Pathfinder.exe
