@@ -1,3 +1,11 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Boids.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\boid.h(42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\boid.h(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\boid.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\main.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\main.cpp(43): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\main.cpp(86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\shauna\documents\github\ailabweek1\lab4_flocking\boids\main.cpp(90): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Boids.vcxproj -> C:\Users\Shauna\Documents\GitHub\AILabWeek1\Lab4_Flocking\x64\Debug\Flock.exe
   Boids.vcxproj -> C:\Users\Shauna\Documents\GitHub\AILabWeek1\Lab4_Flocking\x64\Debug\Flock.pdb (Full PDB)
